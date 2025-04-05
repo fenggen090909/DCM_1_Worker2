@@ -95,15 +95,24 @@ def run_crawler_task(self, spider_name, **kwargs):
             cmd.extend(['-a', f'question_id={question_id}'])
             cmd.extend(['-a', f'title={title}'])
 
-        if spider_name == "web24spider":
-
-            kernelId = kwargs.get('kernelId')
-            competitionId = kwargs.get('competitionId')
-            scriptUrl = kwargs.get('scriptUrl')
-
-            cmd.extend(['-a', f'kernelId={kernelId}'])
+        if spider_name == "web23spider":
+            
+            competitionId = kwargs.get('competition_id')          
+            
             cmd.extend(['-a', f'competitionId={competitionId}'])
-            cmd.extend(['-a', f'scriptUrl={scriptUrl}'])                         
+                                     
+        
+        logging.info(f"准备执行命令: {' '.join(cmd)}")    
+
+        # if spider_name == "web24spider":
+
+        #     kernelId = kwargs.get('kernelId')
+        #     competitionId = kwargs.get('competitionId')
+        #     scriptUrl = kwargs.get('scriptUrl')
+
+        #     cmd.extend(['-a', f'kernelId={kernelId}'])
+        #     cmd.extend(['-a', f'competitionId={competitionId}'])
+        #     cmd.extend(['-a', f'scriptUrl={scriptUrl}'])                         
         
         logging.info(f"准备执行命令: {' '.join(cmd)}")
         
